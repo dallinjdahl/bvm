@@ -1,0 +1,87 @@
+32 bits
+
+opcodes:
+radd 8 r4 r4 
+rsub 8 r4 r4
+rmul 8 r4 r4
+rdiv 8 r4 r4
+
+iadd 6 i6 r4
+isub 6 i6 r4
+imul 6 i6 r4
+idiv 6 i6 r4
+
+and 8 r4 r4
+or  8 r4 r4
+xor 8 r4 r4
+not 8 r4 r4
+
+rlsh 8 r4 r4
+rrsh 8 r4 r4
+
+ilsh 6 i6 r4
+irsh 6 i6 r4
+
+br   8 i32
+jmp  8 i32
+bri  8 r4 i12
+jmpi 6 r4 i14
+call 8 i32
+calli 6 r4 i14
+ret 8
+
+push 8 r4 0:4
+pop  8 r4 0:4
+
+ldb 6 i10 r4 r4
+stb 6 i10 r4 r4
+
+ldw 6 i10 r4 r4
+stw 6 i10 r4 r4
+
+lddw 6 i10 r4 r4
+stdw 6 i10 r4 r4
+
+lea 6 i6 r4
+
+rti (return from interrupt)
+trap
+
+syscalls:
+open
+getc
+putc
+read
+write
+close
+
+socket
+accept
+send
+select
+poll
+shutdown
+
+registers:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+a
+b
+c
+d (sysret)
+e (esp)
+f (eip)
+
+conditions:
+neg
+zero
+carry
+oflow
