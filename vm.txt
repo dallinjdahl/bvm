@@ -1,87 +1,81 @@
-32 bits
+	 0	halt 	00
+     1	add		r4 r4 
+     2	sub		r4 r4 
+     3	mul
+     4	div
+     5	and
+     6	or
+     7	xor
+     8	not		r4 04 
+     9	rsh		r4 04 
+    10	arsh
+    11	lsh
+    12	jmp		i r4 
+    13	cjmp	i r4 f4
+    14	call	i r4 
+    15	ret		00
+    16	push	r4
+    17	pop		r4
+	18	mov		r4 r4
+    19	ldb		i r4 r4  i6 r4
+    20	stb		
+    21	ld
+    22	st
+	23	ainc	r4 i4
+    24	ien
+    25	iqu
+    26	iin
 
-opcodes:
-radd 8 r4 r4 
-rsub 8 r4 r4
-rmul 8 r4 r4
-rdiv 8 r4 r4
+reg (inc bit):
+r1
+r2
+r3
+r4
+r5
+r6
+r7
+r8
+r9
+ra
+rb
+rc
+rd
+re
+rsp
 
-iadd 6 i6 r4
-isub 6 i6 r4
-imul 6 i6 r4
-idiv 6 i6 r4
+rip
 
-and 8 r4 r4
-or  8 r4 r4
-xor 8 r4 r4
-not 8 r4 r4
+flag
+CZSOHE
 
-rlsh 8 r4 r4
-rrsh 8 r4 r4
-
-ilsh 6 i6 r4
-irsh 6 i6 r4
-
-br   8 i32
-jmp  8 i32
-bri  8 r4 i12
-jmpi 6 r4 i14
-call 8 i32
-calli 6 r4 i14
-ret 8
-
-push 8 r4 0:4
-pop  8 r4 0:4
-
-ldb 6 i10 r4 r4
-stb 6 i10 r4 r4
-
-ldw 6 i10 r4 r4
-stw 6 i10 r4 r4
-
-lddw 6 i10 r4 r4
-stdw 6 i10 r4 r4
-
-lea 6 i6 r4
-
-rti (return from interrupt)
-trap
-
-syscalls:
-open
-getc
-putc
-read
-write
-close
-
-socket
-accept
-send
-select
-poll
-shutdown
-
-registers:
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-a
-b
-c
-d (sysret)
-e (esp)
-f (eip)
-
-conditions:
-neg
-zero
 carry
-oflow
+zero
+sign
+overflow
+halt
+error
+
+test program:
+ldi 4, 1
+ldi 4, 2
+add 1, 2
+halt
+17 (11)
+32 (20)
+
+binary:
+10 1 10101 0001 0000
+10 1 10101 0010 0000
+000  00001 0010 0001
+000  00000 0000 0000
+
+00010001 00000000
+00100000 00000000
+
+hex:
+0x10B5
+0x20B5
+0x2101
+0x0000
+0x0011
+0x0020
