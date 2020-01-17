@@ -7,12 +7,12 @@
  6	or
  7	xor
  8	not		r4 04 
- 9	rsh		r4 04 
+ 9	rsh		r4 r4 
 10	arsh
 11	lsh
 12	jmp		i r4  i10
 13	cjmp	i r4 f4
-14	call	i r4 
+14	call	i r4 i10
 15	ret		00
 16	push	r4
 17	pop		r4
@@ -23,11 +23,12 @@
 22	st
 23	ainc	r4 i4
 24	nop
-25	ien
-26	iqu
-27	iin
+25	ien		r4
+26	iqu		r4 (res id8 v8)
+27	iin		r4 (id8 op8)
 
 reg (inc bit):
+r0
 r1
 r2
 r3

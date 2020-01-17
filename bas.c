@@ -97,9 +97,24 @@ uint8_t piter(char *s) {
 	}
 	return -1;
 }
+bool err = false;
+uint8_t reg(char *s) {
+	err = false;
+	char c = *s;
+	if(c >> 4 == 3) {
+		return c & 0x0f;
+	}
+	c |= 0x20;
+	if(c >> 4 == 6) {
+		return (c & 0x0f) + 9;
+	}
+	err = true;
+	return -1;
+}
 
 uint16_t parse() {
 	uint8_t f, o1, o2 = 0;
+	char *in;
 	f = piter(tib);
 	if( f == -1 || !(f & 0x80)) {
 		printf("E: op expected (%s)\n", tib);
@@ -108,5 +123,35 @@ uint16_t parse() {
 	f &= ~0x80;
 	switch (f) {
 		case 0:
-		case 
+		case 0xf:
+		case 0x18:
+			return constop(f);
+		case 0x08:
+		case 0x10:
+		case 0x11:
+		case 0x19:
+		case 0x1a;
+		case 0x1b;
+			in = tib + tib[-1];
+			if(*in != 'r') {
+				printf("E: reg expected (%s)\n", in);
+				exit(1);
+			}
+			
+			switch(in[1]) {
+			case 'm':
+				o1 = 0xe;
+				break;
+			case 's':
+				o1 = 0xf;
+				break;
+			default:
+				o1 = reg(in+1);
+			}
+			if(err) {
+				printf("E: reg expected (%s)\n", in);
+				exit(1);
+			}
+
+			return singleop(f, o1);
 }
