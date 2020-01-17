@@ -1,30 +1,31 @@
-	 0	halt 	00
-     1	add		r4 r4 
-     2	sub		r4 r4 
-     3	mul
-     4	div
-     5	and
-     6	or
-     7	xor
-     8	not		r4 04 
-     9	rsh		r4 04 
-    10	arsh
-    11	lsh
-    12	jmp		i r4 
-    13	cjmp	i r4 f4
-    14	call	i r4 
-    15	ret		00
-    16	push	r4
-    17	pop		r4
-	18	mov		r4 r4
-    19	ldb		i r4 r4  i6 r4
-    20	stb		
-    21	ld
-    22	st
-	23	ainc	r4 i4
-    24	ien
-    25	iqu
-    26	iin
+ 0	halt 	00
+ 1	add		r4 r4 
+ 2	sub		r4 r4 
+ 3	mul
+ 4	div
+ 5	and
+ 6	or
+ 7	xor
+ 8	not		r4 04 
+ 9	rsh		r4 04 
+10	arsh
+11	lsh
+12	jmp		i r4  i10
+13	cjmp	i r4 f4
+14	call	i r4 
+15	ret		00
+16	push	r4
+17	pop		r4
+18	mov		r4 r4
+19	ldb		i r4 r4  i6 r4
+20	stb		
+21	ld
+22	st
+23	ainc	r4 i4
+24	nop
+25	ien
+26	iqu
+27	iin
 
 reg (inc bit):
 r1
@@ -40,7 +41,7 @@ ra
 rb
 rc
 rd
-re
+rmx
 rsp
 
 rip

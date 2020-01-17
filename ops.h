@@ -22,10 +22,12 @@
 #define LD		21
 #define ST		22
 #define AINC	23
-#define IEN		24
-#define IQU		25
-#define IIN		26
+#define NOP		24
+#define IEN		25
+#define IQU		26
+#define IIN		27
 
+#define RMX		14
 #define RSP		15
 #define RIP		16
 #define FLAG	17
